@@ -20,7 +20,10 @@ def health():
 def vote(name):
     votes[name] = votes.get(name, 0) + 1
     return f"Vote recorded for {name}"
-
+@app.route("/reset")
+def reset():
+    votes.clear()
+    return "All votes have been reset"
 
 @app.route("/results")
 def results():
